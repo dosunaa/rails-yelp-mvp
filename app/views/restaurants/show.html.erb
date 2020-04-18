@@ -1,0 +1,21 @@
+<div class='container' style='list-style-type:none'>
+  <h2 class = 'mt-3'><%= @restaurant.name %></h2>
+    <span class='font-weight-bold' ><%= @restaurant.category.capitalize%> Cuisine </span><span class='text-secondary'> | Phone: <%= @restaurant.phone_number %></span>
+    <li class='text-secondary'><%= @restaurant.address.split.map(&:capitalize).join(' ')%></li>
+      <div>
+        <li><%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %></li>
+        <br>
+        <li><%= link_to 'Back', restaurants_url %></li>
+          <br>
+          <br>
+          <div class="list-group">
+            <h5 class = "text-secondary">What have others said about <%= @restaurant.name %>?</h5>
+              <% @restaurant.reviews.each do |review| %>
+                <div class = "list-group-item">
+                  <li>Rating: <%= review.rating %></li>
+                  <i class="text-secondary" >"<%= review.content %>"</i>
+                </div>
+              <% end %>
+          </div>
+      </div>
+</div>

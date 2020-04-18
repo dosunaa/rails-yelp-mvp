@@ -1,0 +1,12 @@
+<div class='container'>
+  <title>Restaurants</title>
+    <h1> Restaurants' List </h1>
+    <br>
+      <div class='container' style="list-style-type:none" >
+        <% @restaurants.each do |restaurant| %>
+          <strong class='text-dark'><%= link_to restaurant.name, restaurant %></strong>
+          <li class='pb-2 text-secondary' ><%= restaurant.category.capitalize %></li>
+        <% end %>
+      </div>
+</div>
+
